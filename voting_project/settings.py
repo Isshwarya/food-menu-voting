@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'voting_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'app',
+        'NAME': 'app_test',
         'USER': 'app',
         'PASSWORD': 'secret',
         'HOST': 'localhost',
@@ -139,6 +139,8 @@ REST_FRAMEWORK = {
         'voting_project.permissions.IsOwnerOrReadOnly'
     ],
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.AcceptHeaderVersioning',
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 100,
 }
 
 SIMPLE_JWT = {
