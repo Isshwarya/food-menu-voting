@@ -45,3 +45,5 @@ Usage of Linting and Static typing tools
 - For selecting top 3 menu's, it's not stated how to perform the selection approach. So the assumed approach is: top three menus are selected based on the menus getting highest no.of votes across any preference_score. This leaves us with the case where a menu getting high no.of votes for preference_score:3 could emerge as the top most finalist. Instead, we could do a weighted score and select top 3 menus based on total score (preference score=1 could be given 5 points, preference score=2 could be given 3 points, preference score=3 could be given 2 points) instead of merely going by counts of votes. This can be improved later based on product requirments.
 
 - Add the ability for the user to change his/her menu preference later. Let's say if the user has voted for Restaurant "Rest1"'s menu as the top most preference and later the user wants to change it to "Rest2". Currently, once voted, we don't allow overrides. This can be decided based on product requirements.
+
+- Implement filtering feature for list type requests as an added feature.
