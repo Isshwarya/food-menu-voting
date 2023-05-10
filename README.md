@@ -38,6 +38,10 @@ Usage of Linting and Static typing tools
 
 ## Solution details
 
+### Documentation
+
+Swagger documentation for REST APIs is available at http://0.0.0.0:8000/swagger/
+
 ### Entities in the system
 
 #### Authentication
@@ -194,3 +198,5 @@ docker-compose -f deployment/docker-compose.yml up -d
 - Add the ability for the user to change his/her menu preference later. Let's say if the user has voted for Restaurant "Rest1"'s menu as the top most preference and later the user wants to change it to "Rest2". Currently, once voted, we don't allow overrides. This can be decided based on product requirements.
 
 - Implement filtering feature for list type requests as an added feature.
+
+- Adjust swagger doc for POST /api/menu/vote/
