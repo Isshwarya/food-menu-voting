@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
+
 from pathlib import Path
 from datetime import timedelta
 
@@ -80,10 +82,10 @@ WSGI_APPLICATION = 'voting_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'app_test',
-        'USER': 'app',
-        'PASSWORD': 'secret',
-        'HOST': 'localhost',
+        'NAME': os.environ.get("POSTGRES_NAME", 'app_test'),
+        'USER': os.environ.get("POSTGRES_USER", 'app'),
+        'PASSWORD': os.environ.get("POSTGRES_PASSWORD", 'secret'),
+        'HOST': os.environ.get("DB_HOST", 'localhost'),
         'PORT': '5432',
     }
 }
@@ -124,6 +126,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

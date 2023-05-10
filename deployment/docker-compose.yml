@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  db:
+    container_name: postgresql
+    image: postgres
+    networks:
+      - elastic
+    ports:
+      - 5432:5432
+    volumes:
+      - data01:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=app_test
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=secret
+    restart: always
+  web:
+    image: voting_app:latest
+    ports:
+      - 8010:8010
+      - 8020:8020
+    networks:
+      - elastic
+    environment:
+      - POSTGRES_NAME=app_test
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=secret
+      - DB_HOST=db
+      - DJANGO_SUPERUSER_USERNAME=admin
+      - DJANGO_SUPERUSER_PASSWORD=admin
+      - DJANGO_SUPERUSER_EMAIL=admin@example.org
+    restart: always
+    depends_on:
+      - db
+
+volumes:
+  data01:
+    driver: local
+
+networks:
+  elastic:
+    driver: bridge
