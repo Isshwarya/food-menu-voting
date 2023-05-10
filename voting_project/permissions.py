@@ -12,8 +12,8 @@ class IsOwnerOrReadOnly(BasePermission):
         if request.method in SAFE_METHODS:
             return True
 
-        if "admin" in (role.lower() for role in request.user.roles):
+        if "admin" in (group.name.lower() for group in request.user.groups.all()):
             # admin user can edit anyone's object
             return True
-
-        return obj.created_by == request.user
+        print("Isshwarya %s" % (obj.created_by == request.user.id))
+        return obj.created_by == request.user.id
