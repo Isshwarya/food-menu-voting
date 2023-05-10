@@ -87,7 +87,7 @@ Each vote submitted by the user creates an entry under this model.
 
 ### How to deploy the web server
 
-- First, build the docker image. Set your current directory to the workspace directory and then run the commands
+- First, collect the static files in static folder for Nginx to serve and then build the docker image. Set your current directory to the workspace directory and then run the commands
 
 ```console
 >>>python manage.py collectstatic

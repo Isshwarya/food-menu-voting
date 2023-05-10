@@ -1,12 +1,15 @@
 from datetime import date
 
 from django.shortcuts import render
+from django.db.models import Count
 from rest_framework.views import APIView
 from rest_framework import viewsets, status
 from rest_framework.decorators import action, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny
-from django.db.models import Count
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
+
 
 from .models import Restaurant, Employee, Menu, Vote
 from .serializers import RestaurantSerializer, EmployeeSerializer,\
@@ -58,6 +61,14 @@ class MenuViewSet(CustomBaseModelViewSet):
         serializer = self.get_serializer(menu_items, many=True)
         return Response(serializer.data)
 
+    # preference_param = openapi.Parameter(
+    #     'preference_score', openapi.IN_BODY,
+    #     description="A integer value representing preference score. Valid values are 1, 2 and 3", type=openapi.TYPE_INTEGER)
+
+    # @swagger_auto_schema(method='post',
+    #                      # responses={200: UserSerializer(many=True)},
+    #                      manual_parameters=[preference_param]
+    #                      )
     @action(detail=True, methods=['post'], permission_classes=[IsAuthenticatedOrReadOnly,])
     def vote(self, request, pk=None):
         menu = self.get_object()
