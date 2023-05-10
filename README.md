@@ -200,3 +200,7 @@ docker-compose -f deployment/docker-compose.yml up -d
 - Implement filtering feature for list type requests as an added feature.
 
 - Adjust swagger doc for POST /api/menu/vote/
+
+### High availability
+
+Azure's traffic manager could prove to be a good choice to ensure high availability. We could employ traffic manager to direct traffic across nginx services deployed in different availability zones. This way, even if one of the availability zone goes down, traffic manager can still serve the traffic through other instances running in different availability zones.
