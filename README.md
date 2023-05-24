@@ -2,7 +2,7 @@
 
 An application that provides APIs for the employers of a company to vote for their favorite menu from different food chains.
 
-## Assignment details
+## Problem Statement
 
 ### About
 
@@ -24,23 +24,11 @@ o Getting current day menu
 o Voting for restaurant menu (Old version api accepted one menu, New one accepts top three menus with respective points (1 to 3)
 o Getting results for current day
 
-### Requirements:
-
-Solution should be built using Python and preferably Django Rest Framework, but any other framework works
-App should be containerised
-Project and API Documentation
-• Tests
-
-### Extra points
-
-HA Cloud Architecture Schema/Diagram (Preferably Azure)
-Usage of Linting and Static typing tools
-
 ## Solution details
 
 ### Documentation
 
-Swagger documentation for REST APIs is available at http://0.0.0.0:8000/swagger/
+Swagger documentation for REST APIs is available at http://0.0.0.0:8000/swagger/. Before that, web server should be started to serve swagger and please follow the section on how to deploy webserver.
 
 ### Entities in the system
 
